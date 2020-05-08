@@ -1,0 +1,81 @@
+/**
+ * JavaCC template file created by SF JavaCC plugin 1.5.28+ wizard for JavaCC 1.5.0+
+ */options{  static = true;}PARSER_BEGIN(Parser)package edu.itsco;
+
+public class Parser{  public static void main(String args []) throws ParseException  {    Parser parser = new Parser(System.in);//introducir datos desde el teclado      }}PARSER_END(Parser)SKIP :{  " "| "\r"| "\t"| "\n"}
+TOKEN:{ //Definición de palabras reservadas.
+<INICIO: "inicio">
+|<FIN: "fin">
+
+| < ENTERO: "entero" >
+| < CADENA: "cadena" >
+| < FLOTANTE: "flotante" >
+
+| < VAR: "var" >
+
+| < ESCRIBIR: "escribir" >
+| < LEER: "leer" >
+//If
+| < SI: "si" >
+| < SINO: "sino" >
+| < ENTONCES: "entonces">
+//SWITCH
+| < SELECCIONA: "selecciona" >
+| < CASO: "caso" >
+| < DEFECTO: "defecto" >
+//FOR
+|<PARA: "para" >
+| < HASTA: "hasta">
+| < SIGUIENTE: "siguiente">
+//WHILE
+| < HACER: "hacer" >
+| < MIENTRAS: "mientras" >
+
+}
+
+TOKEN: {
+//Operadores Aritmeticos
+  <SUMA: "suma" >
+| < RESTA:"resta" >
+| < MULTI:"*" >
+| < DIV:"div">
+| < MOD:"%">
+//Operadores Relacionales
+| < MAYOR:">">
+| < MENOR:"<">
+| < IGUAL:"=" >
+//Operadores Logicos
+| < AND:"&&">
+| < OR:"||">
+| < NOT:"!">
+//Simbolos diversos
+|< OPP:"(" >
+| < OPC")" >
+
+}
+
+TOKEN: {
+  //Tokens Dínamicos
+| < #LETRA: ["a"-"z","A"-"Z"] >
+| < #DIGITOS:["0"-"9"] >
+
+| < IDENTIFICADOR: (< letra >| "_" (< letra>|< digitos>|"_")*) >
+
+| < VALOR_ENTERO: (< digitos >)+ >
+| < VALOR_FLOTANTE:(< digitos >)+ "." (< digitos >)+ >
+| < VALOR_CADENA: "\""(~["\""])*"\"" >
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
